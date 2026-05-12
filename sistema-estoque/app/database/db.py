@@ -5,12 +5,17 @@ import os
 
 load_dotenv()
 
+import streamlit as st
+
 # Caminho absoluto para fallback local
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DEFAULT_DB_URL = f"sqlite:///{os.path.join(BASE_DIR, 'data', 'estoque.db')}"
 
-# Obtém a string de conexão direta do banco PostgreSQL do Supabase
-DATABASE_URL = os.getenv("SUPABASE_DB_URL", os.getenv("DB_URL", DEFAULT_DB_URL))
+# Obtém a string de conexão do secrets do Streamlit, ou variável de ambiente
+try:
+    DATABASE_URL = st.secrets["SUPABASE_DB_URL"]
+except (FileNotFoundError, KeyError):
+    DATABASE_URL = os.getenv("SUPABASE_DB_URL", os.getenv("DB_URL", DEFAULT_DB_URL))
 
 # O SQLAlchemy exige que a URL comece com postgresql:// e não apenas postgres://
 if DATABASE_URL.startswith("postgres://"):
