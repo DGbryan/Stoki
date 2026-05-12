@@ -30,7 +30,7 @@ st.title("Resultado da Validação")
 if "val_status" not in st.session_state:
     st.info("Nenhuma validação recente encontrada.")
     if st.button("Voltar ao Scanner"):
-        st.switch_page("pages/scan.py")
+        st.switch_page("pages/Scan.py")
     st.stop()
 
 status = st.session_state.get("val_status")
@@ -60,6 +60,6 @@ if st.button("Escanear Novo Item", type="primary"):
     for k in ["val_status", "val_item_code", "val_scanned_loc", "val_expected_loc"]:
         if k in st.session_state:
             del st.session_state[k]
-    st.switch_page("pages/scan.py")
+    st.switch_page("pages/Scan.py")
 
 

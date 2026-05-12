@@ -88,7 +88,7 @@ if st.button("Validar"):
             st.session_state["val_expected_loc"] = str(expected_loc)
             st.session_state["val_status"] = status
             
-            st.switch_page("pages/validation.py")
+            st.switch_page("pages/Validation.py")
             
         finally:
             db.close()

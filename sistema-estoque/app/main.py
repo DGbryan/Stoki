@@ -32,7 +32,7 @@ if 'operator_name' not in st.session_state:
 
 def main():
     if not st.session_state['operator_id']:
-        st.switch_page("pages/login.py")
+        st.switch_page("pages/Login.py")
     else:
         st.title(f"Bem-vindo(a), {st.session_state['operator_name']}")
         st.markdown("Selecione uma opção no menu lateral para começar.")
