@@ -85,7 +85,36 @@ try:
                 except Exception as e:
                     st.error(f"Ocorreu um erro ao gerar as imagens: {e}")
 
+    st.divider()
+
+    st.header("3. QR Codes de Teste (Prontos para Uso)")
+    st.markdown("Use os QR Codes abaixo para testar o sistema no seu celular agora mesmo.")
+    
+    import qrcode
+    
+    def generate_qr_image(data):
+        qr = qrcode.QRCode(version=1, box_size=10, border=4)
+        qr.add_data(data)
+        qr.make(fit=True)
+        img = qr.make_image(fill_color="black", back_color="white")
+        return img
+
+    test_codes = [
+        {"type": "Rolo (Correto)", "code": "TC.000.296"},
+        {"type": "Rolo (Divergente)", "code": "ROLO-100"},
+        {"type": "Prateleira 1", "code": "TEC01.A"},
+        {"type": "Prateleira 2", "code": "TEC01.B"}
+    ]
+    
+    cols = st.columns(4)
+    for i, test_data in enumerate(test_codes):
+        with cols[i]:
+            st.markdown(f"**{test_data['type']}**")
+            st.caption(f"`{test_data['code']}`")
+            st.image(generate_qr_image(test_data["code"]).get_image(), use_container_width=True)
+
 finally:
     db.close()
+
 
 
