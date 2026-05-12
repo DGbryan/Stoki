@@ -4,6 +4,7 @@ from app.database.db import Base, engine
 
 class Operator(Base):
     __tablename__ = "operators"
+    __table_args__ = {'extend_existing': True}
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, nullable=False)
@@ -14,6 +15,7 @@ class Operator(Base):
 
 class Item(Base):
     __tablename__ = "items"
+    __table_args__ = {'extend_existing': True}
 
     id = Column(Integer, primary_key=True, index=True)
     item_code = Column(String, unique=True, index=True)
@@ -26,6 +28,7 @@ class Item(Base):
 
 class Location(Base):
     __tablename__ = "locations"
+    __table_args__ = {'extend_existing': True}
 
     id = Column(Integer, primary_key=True, index=True)
     location_code = Column(String, unique=True, index=True)
@@ -36,6 +39,7 @@ class Location(Base):
 
 class Scan(Base):
     __tablename__ = "scans"
+    __table_args__ = {'extend_existing': True}
 
     id = Column(Integer, primary_key=True, index=True)
     item_code = Column(String, index=True)
@@ -49,6 +53,7 @@ class Scan(Base):
 
 class Divergence(Base):
     __tablename__ = "divergences"
+    __table_args__ = {'extend_existing': True}
 
     id = Column(Integer, primary_key=True, index=True)
     scan_id = Column(Integer, ForeignKey("scans.id"))
