@@ -1,3 +1,6 @@
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 import streamlit as st
 from app.database.db import get_db
 from app.services.auth_service import authenticate_operator, register_operator, reset_password
@@ -95,3 +98,4 @@ try:
 
 finally:
     db.close()
+

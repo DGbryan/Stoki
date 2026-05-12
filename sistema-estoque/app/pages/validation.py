@@ -1,3 +1,6 @@
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 import streamlit as st
 
 import os
@@ -58,3 +61,4 @@ if st.button("Escanear Novo Item", type="primary"):
         if k in st.session_state:
             del st.session_state[k]
     st.switch_page("pages/scan.py")
+

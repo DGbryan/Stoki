@@ -1,3 +1,6 @@
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 import streamlit as st
 from app.database.db import get_db
 from app.services.report_service import get_scans_dataframe, get_divergences_dataframe, generate_excel_report
@@ -61,3 +64,4 @@ try:
 
 finally:
     db.close()
+

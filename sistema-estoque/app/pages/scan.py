@@ -1,3 +1,6 @@
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 import streamlit as st
 from app.database.db import get_db
 from app.services.scan_service import process_scan
@@ -91,3 +94,4 @@ if st.button("Validar"):
             db.close()
     else:
         st.warning("Por favor, preencha (ou escaneie) os dois códigos.")
+
