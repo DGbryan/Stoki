@@ -18,8 +18,8 @@ st.markdown("""
         [data-testid="stSidebarHeader"] img,
         [data-testid="stLogo"],
         [data-testid="stLogo"] img {
-            height: 6rem !important;
-            max-height: 6rem !important;
+            height: 4.5rem !important;
+            max-height: 4.5rem !important;
             width: auto !important;
         }
     </style>
@@ -94,4 +94,5 @@ if st.button("Validar"):
             db.close()
     else:
         st.warning("Por favor, preencha (ou escaneie) os dois códigos.")
+
 

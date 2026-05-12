@@ -13,8 +13,8 @@ st.markdown("""
         [data-testid="stSidebarHeader"] img,
         [data-testid="stLogo"],
         [data-testid="stLogo"] img {
-            height: 6rem !important;
-            max-height: 6rem !important;
+            height: 4.5rem !important;
+            max-height: 4.5rem !important;
             width: auto !important;
         }
     </style>
@@ -61,4 +61,5 @@ if st.button("Escanear Novo Item", type="primary"):
         if k in st.session_state:
             del st.session_state[k]
     st.switch_page("pages/scan.py")
+
 

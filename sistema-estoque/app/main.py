@@ -17,8 +17,8 @@ st.markdown("""
         [data-testid="stSidebarHeader"] img,
         [data-testid="stLogo"],
         [data-testid="stLogo"] img {
-            height: 6rem !important;
-            max-height: 6rem !important;
+            height: 4.5rem !important;
+            max-height: 4.5rem !important;
             width: auto !important;
         }
     </style>
@@ -39,3 +39,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
